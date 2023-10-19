@@ -1,0 +1,33 @@
+﻿@inherits LayoutComponentBase
+
+<MudThemeProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<MudThemeProvider @bind-IsDarkMode="@_isDarkMode" Theme="_theme" />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<MudLayout>
+    <MudAppBar Elevation="0">
+        <MudButton Href="/" Class="pa-4" Target="_self" Variant="Variant.Filled" Size="Size.Large" EndIcon="@Icons.Material.Filled.Home">Home</MudButton>
+        <MudButton Href="scanbook" Class="pa-4" Target="_self" Variant="Variant.Filled" Size="Size.Large" EndIcon="@Icons.Material.Filled.Book">Scan books</MudButton>
+        <MudButton Href="allbooks" Class="pa-4" Target="_self" Variant="Variant.Filled" Size="Size.Large" EndIcon="@Icons.Material.Filled.MenuBook">All books</MudButton>
+
+    </MudAppBar>
+    <MudMainContent>
+        <MudContainer MaxWidth="MaxWidth.Large" Class="my-16 mt-16">
+            @Body
+        </MudContainer>
+    </MudMainContent>
+</MudLayout>
+
+@code {
+    public MudTheme _theme = new();
+    public bool _isDarkMode;
+
+    public void ThemeToggle()
+    {
+        _isDarkMode = !_isDarkMode;
+    }
+}

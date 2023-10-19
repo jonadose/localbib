@@ -20,7 +20,8 @@ namespace Persistence
                     Author = "F. Scott Fitzgerald",
                     Description = "The Great Gatsby is a 1925 ",
                     Isbn_10 = "0743273567",
-                    Isbn_13 = "9780743273565"
+                    Isbn_13 = "9780743273565",
+                    Rating = 5
 
                 },
                 new Book
@@ -30,7 +31,8 @@ namespace Persistence
                     Author = "Charles Dickens",
                     Description = "Book",
                     Isbn_10 = "1293585899",
-                    Isbn_13 = "2958373967392"
+                    Isbn_13 = "2958373967392",
+                    Rating = 4
                 });
         }
 

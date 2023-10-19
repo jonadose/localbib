@@ -1,19 +1,21 @@
-﻿namespace localbib.Pages.Components
+﻿using Application.Features.Books.Queries;
+using Application.Features.Books.ViewModels;
+using MediatR;
+using Microsoft.AspNetCore.Components;
+
+namespace localbib.Pages.Components
 {
     public partial class BookTableComponent
     {
-        public record Employee(string Name, string Position, int YearsEmployed, int Salary, int Rating);
-        public IEnumerable<Employee> employees;
 
-        protected override void OnInitialized()
+        [Inject]
+        public required IMediator Mediator { get; set; }
+
+        private List<BookVm> _books = new();
+
+        protected override async Task OnInitializedAsync()
         {
-            employees = new List<Employee>
-            {
-            new Employee("Sam", "CPA", 23, 87_000, 4),
-            new Employee("Alicia", "Product Manager", 11, 143_000, 5),
-            new Employee("Ira", "Developer", 4, 92_000, 3),
-            new Employee("John", "IT Director", 17, 229_000, 4),
-            };
+            _books = await Mediator.Send(new GetAllBooksQuery());
         }
     }
 }

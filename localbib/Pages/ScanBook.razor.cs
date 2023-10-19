@@ -1,7 +1,13 @@
-﻿namespace localbib.Pages
+﻿using MediatR;
+using Microsoft.AspNetCore.Components;
+
+namespace localbib.Pages
 {
     public partial class ScanBook
     {
+        [Inject]
+        public required IMediator Mediator { get; set; }
+
         public string Input { get; set; } = string.Empty;
         private bool _processing = false;
 

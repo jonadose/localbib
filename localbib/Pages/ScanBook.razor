@@ -1,23 +1,41 @@
-﻿
-@page "/scanbook"
-<h3>ScanBook</h3>
+﻿@page "/scanbook"
+
+<PageTitle>Scan book</PageTitle>
+<MudText Typo="Typo.h5">Scan Books</MudText>
+<MudText Typo="Typo.body1">Scan isbn to add a book to the collection.</MudText>
+
 
 <MudGrid Spacing="12" Class="d-flex mb-6" Justify="Justify.FlexStart">
-     
-        <MudItem xs="12">
-            <MudStack Row="true">
-                <MudTextField @bind-Value="Input" Label="Outlined" Variant="Variant.Outlined"></MudTextField>
-                <MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="SearchBook" Disabled="@_processing">
-                    @if (_processing)
-                    {
-                        <MudProgressCircular Class="ms-n1" Size="Size.Small" Indeterminate="true" />
-                        <MudText Class="ms-2">Searching</MudText>
-                    }
-                    else
-                    {
-                        <MudText>Search</MudText>
-                    }
-                </MudButton>
-            </MudStack>
-        </MudItem>
+    <MudItem xs="3">
+        <MudSpacer>
+
+        </MudSpacer>
+    </MudItem>
+    <MudItem xs="6">
+        <MudStack Row="true">
+            <MudTextField @bind-Value="Input" Label="Isbn" Variant="Variant.Outlined"></MudTextField>
+            <MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="SearchBook" Disabled="@_processing">
+                @if (_processing)
+                {
+                    <MudProgressCircular Class="ms-n1" Size="Size.Small" Indeterminate="true" />
+                    <MudText Class="ms-2">Searching</MudText>
+                }
+                else
+                {
+                    <MudText>Search</MudText>
+                }
+            </MudButton>
+        </MudStack>
+    </MudItem>
+    <MudItem xs="3">
+        <MudSpacer>
+
+        </MudSpacer>
+    </MudItem>
+</MudGrid>
+
+<MudGrid Spacing="12" Class="d-flex mb-6" Justify="Justify.FlexStart">
+    <MudItem xs="12">
+        <MudField Label="@Result" Variant="Variant.Outlined"></MudField>
+    </MudItem>
 </MudGrid>

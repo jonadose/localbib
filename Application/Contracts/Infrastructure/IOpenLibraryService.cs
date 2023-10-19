@@ -2,6 +2,6 @@
 {
     public interface IOpenLibraryService
     {
-        Task GetBookWithIsbn(string isbn);
+        Task<string> GetBookByIsbnAsync(string isbn);
     }
 }

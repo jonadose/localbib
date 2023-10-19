@@ -1,4 +1,3 @@
-using localbib.Data;
 using MudBlazor.Services;
 using Persistence;
 
@@ -10,7 +9,6 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddMudServices();
 
 builder.Services.AddPersistenceServices(builder.Configuration);
-builder.Services.AddSingleton<WeatherForecastService>();
 
 var app = builder.Build();
 

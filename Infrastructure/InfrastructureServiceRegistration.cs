@@ -4,7 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Net.Http;
 
-namespace Persistence
+namespace Infrastructure
 {
     public static class InfrastructureServiceRegistration
     {
@@ -13,7 +13,7 @@ namespace Persistence
             services.AddTransient<IOpenLibraryService, OpenLibraryService>();
             services.AddHttpClient<IOpenLibraryService, OpenLibraryService>(client =>
             {
-                client.BaseAddress = new Uri("https://openlibrary.org/isbn/");
+                client.BaseAddress = new Uri("https://openlibrary.org/");
             });
             return services;
         }

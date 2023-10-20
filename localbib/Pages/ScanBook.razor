@@ -34,8 +34,26 @@
     </MudItem>
 </MudGrid>
 
-<MudGrid Spacing="12" Class="d-flex mb-6" Justify="Justify.FlexStart">
-    <MudItem xs="12">
-        <MudField Label="@Result" Variant="Variant.Outlined"></MudField>
-    </MudItem>
-</MudGrid>
+@if (Result is not null)
+{
+    <MudGrid Spacing="12" Class="d-flex mb-6" Justify="Justify.FlexStart">
+        <MudItem xs="4">
+            <MudImage Src=@_coverpath Alt="Book cover" Elevation="25" Class="rounded-lg ma-4" />
+        </MudItem>
+        <MudItem xs="8">
+            <MudField Label="@Result.Title" Variant="Variant.Text"></MudField>
+            
+            @if (Authors.Any())
+            {
+                @foreach (var author in Authors)
+                {
+                    <MudField Label="@author.Name" Variant="Variant.Text"></MudField>
+                }
+            }
+            <MudField Label="@Result.PublishDate" Variant="Variant.Text"></MudField>
+            <MudField Label="@Result.Isbn13.First()" Variant="Variant.Text"></MudField>
+            <MudField Label="@Result.NumberOfPages.ToString()" Variant="Variant.Text"></MudField>
+            <MudField Label="@Result.Created.Value.ToString("yyyy-MM-ddTHH:mm:ss zzz")" Variant="Variant.Text"></MudField>
+        </MudItem>
+    </MudGrid>
+}

@@ -42,5 +42,14 @@ namespace localbib.Pages
                 Authors.Add(await Mediator.Send(new GetAuthorByKeyQuery { Key = author.Key }));
             }
         }
+
+
+        public async Task AddBook()
+        {
+            _processing = true;
+            await Task.Delay(1000);
+            _processing = false;
+            return;
+        }
     }
 }
